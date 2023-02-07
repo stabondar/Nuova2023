@@ -8,14 +8,15 @@ main
   display: block;
 }
 
-.burger__item.w--current
-{
-  pointer-events: none;
+.footer__clutch {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 0.95rem;
 }
 
-.burger__item.w--current .h3--84
-{
-  color: #7870F1;
+.footer__clutch iframe {
+  width: 12rem;
+  height: 2.5rem !important;
 }
 
 ::selection

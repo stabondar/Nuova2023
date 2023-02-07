@@ -69,19 +69,43 @@ export default class Text
             }
             charAnimation()
 
+            // const imgScroll = () => 
+            // {
+            //     $('[img-scroll="1"]').each(function()
+            //     {
+            //         let self = $(this)
+            //         let tl = gsap.timeline({paused: true, defaults: {duration: 0.7, ease: 'power3', stagger: 0.04}})
+            //         tl.from(self, {yPercent: 40, opacity: 0})
+    
+            //         ScrollTrigger.create({
+            //             trigger: self,
+            //             start: enter,
+            //             onEnter: () => tl.play()
+            //         })
+            //     })
+            // }
+            // imgScroll()
+
             const imgScroll = () => 
             {
-                $('[img-scroll="1"]').each(function()
+                let img = $('[img-scroll="1"]')
+                $(img).each(function()
                 {
                     let self = $(this)
-                    let tl = gsap.timeline({paused: true, defaults: {duration: 0.7, ease: 'power3', stagger: 0.04}})
-                    tl.from(self, {yPercent: 40, opacity: 0})
-    
-                    ScrollTrigger.create({
-                        trigger: self,
-                        start: enter,
-                        onEnter: () => tl.play()
+                    let parent = self.parent()
+                    gsap.set(parent, {overflow: 'hidden'})
+                    gsap.set(self, {scale: 1.1})
+                    let tl = gsap.timeline(
+                    {
+                        scrollTrigger: 
+                        {
+                            trigger: parent,
+                            start: 'top bottom',
+                            end: 'bottom top',
+                            scrub: 1
+                        }
                     })
+                    tl.fromTo(self, {yPercent: -10}, {yPercent: 10})
                 })
             }
             imgScroll()
