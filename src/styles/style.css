@@ -8,17 +8,6 @@ main
   display: block;
 }
 
-.footer__clutch {
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 0.95rem;
-}
-
-.footer__clutch iframe {
-  width: 12rem;
-  height: 2.5rem !important;
-}
-
 ::selection
 {
   background-color: #7870F1;
@@ -26,3 +15,68 @@ main
   -webkit-text-fill-color: white;
   -webkit-text-stroke-color: transparent;
 }
+
+.faq_toggle.open .faq_icon {
+	transform: rotate(90deg);
+}
+
+/*---- clutch label ----*/ 
+
+.footer__clutch {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.95rem;
+}
+
+.footer__clutch iframe {
+  width: 10rem;
+  height: 4,43rem !important;
+}
+
+.logotype {
+  height: 19px;
+  width: 65px;
+}
+
+.small_widget_logo_text {
+  font-size: 8px;
+  margin: 0 0 9px;
+}
+
+.fivestar .star {
+  height: 10px;
+  width: 10px;
+  margin-right: 5px;
+}
+
+.fivestar .star span.off:before, .fivestar .star span.on:before { 
+  min-width: 10px;
+  min-height: 10px;
+}
+
+.fivestar .star span.off:after, .fivestar .star span.on:after {
+  margin-top: -10px;
+}
+
+.small_widget_text {
+  margin-left: 12px;
+}
+
+.reviews-count {
+  font-size: 10px;
+  margin-top: 12px;
+}
+
+/*------------------------*/ 
+
+/*---- About page > Team Block ----*/
+
+.team__card:nth-child(3n+1) {
+  margin-top: 3.625rem;
+}
+
+.team__card:nth-child(3n+2) {
+  margin-top: 8.4375rem;
+}
+
+/*------------------------*/ 
