@@ -1,0 +1,25 @@
+:root
+{
+    --main-bg: #151515;  
+    --main-heading: #F0F0F0;  
+    --main-descr: #B8B8B8;  
+    --transition-dur: 0.4s cubic-bezier(0.33, 1, 0.68, 1)
+}
+
+
+:root.light
+{
+    --main-bg: #F0F0F0;  
+    --main-heading: #151515;  
+    --main-descr: #303030;  
+}
+
+body {
+    background-color: var( --main-bg);
+    transition: var(--transition-dur);
+}
+
+body {
+    background-color: var( --main-bg);
+    transition: ( --transition-dur);
+}
