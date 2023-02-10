@@ -15,7 +15,7 @@ export default class ChangeColor
             ScrollTrigger.create(
             {
                 trigger: self,
-                start: 'top 70%', end: 'bottom 50%',
+                start: 'top 70%', end: 'bottom 70%',
                 onToggle: ({self, isActive}) => 
                 {
                     if(isActive)
