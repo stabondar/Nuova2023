@@ -105,7 +105,7 @@ export default class Text
                             scrub: 1
                         }
                     })
-                    tl.fromTo(self, {yPercent: -10}, {yPercent: 10})
+                    tl.fromTo(self, {yPercent: -5}, {yPercent: 5})
                 })
             }
             imgScroll()
