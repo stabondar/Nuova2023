@@ -1,3 +1,8 @@
+import gsap from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
 export default class Accordion
 {
     constructor() 
@@ -25,6 +30,10 @@ export default class Accordion
             }
             // Open and close the toggle div
             $(this).toggleClass("open");
+
+            setTimeout(() => {
+              ScrollTrigger.refresh();
+            }, animationDuration);
           });
     }
 }
