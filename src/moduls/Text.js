@@ -65,9 +65,9 @@ export default class Text
                     split = new SplitText(self, {type: 'chars, lines'})
 
                     if(self.hasClass('w-richtext')) {
-                        split = new SplitText(self.find('h2'), {type: 'lines'})
+                        split = new SplitText(self.find('h2'), {type: 'chars, lines'});
                     } else {
-                        split = new SplitText(self, {type: 'lines'})
+                        split = new SplitText(self, {type: 'chars, lines'});
                     }
 
 
