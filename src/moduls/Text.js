@@ -37,7 +37,14 @@ export default class Text
                 $('[text-line="1"]').each(function()
                 {
                     let self = $(this)
-                    split = new SplitText(self, {type: 'lines'})
+                    split = new SplitText(self, {type: 'lines'});
+
+                    if(self.hasClass('w-richtext')) {
+                        split = new SplitText(self.find('p'), {type: 'lines'})
+                    } else {
+                        split = new SplitText(self, {type: 'lines'})
+                    }
+
                     let tl = gsap.timeline({paused: true, defaults: {duration: 0.8, ease: 'power3', stagger: 0.04}})
                     tl.from(split.lines, {yPercent: 100, opacity: 0})
     
@@ -56,6 +63,14 @@ export default class Text
                 {
                     let self = $(this)
                     split = new SplitText(self, {type: 'chars, lines'})
+
+                    if(self.hasClass('w-richtext')) {
+                        split = new SplitText(self.find('h2'), {type: 'lines'})
+                    } else {
+                        split = new SplitText(self, {type: 'lines'})
+                    }
+
+
                     let tl = gsap.timeline({paused: true, defaults: {duration: 0.8, ease: 'power3', stagger: 0.02}})
                     gsap.set(split.lines, {overflow: 'hidden'})
                     tl.from(split.chars, {yPercent: 100, opacity: 0})
