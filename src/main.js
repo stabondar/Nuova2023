@@ -9,7 +9,7 @@ import Text from './moduls/Text'
 import Utils from './moduls/Utils'
 import Accordion from './moduls/Accordion'
 import Nav from './moduls/Nav';
-import ChangeColor from './moduls/ChangeColor';
+// import ChangeColor from './moduls/ChangeColor';
 
 const checkPages = () => {
     const service = new ServiceBlock()
@@ -19,6 +19,6 @@ const checkPages = () => {
     const utils = new Utils()
     const accordion = new Accordion()
     const nav = new Nav()
-    const color = new ChangeColor()
+    // const color = new ChangeColor()
 }
 checkPages()
