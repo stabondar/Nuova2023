@@ -4,6 +4,9 @@ export default class Utils
 {
     constructor()
     {
-        gsap.set('main', { autoAlpha: 1 })
+        window.addEventListener('load', () =>
+        {
+            gsap.set('main', { autoAlpha: 1 })
+        })
     }
 }

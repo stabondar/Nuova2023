@@ -1,11 +1,6 @@
-main
-{
-  visibility: hidden;
-}
-
 .loader
 {
-  display: block;
+  height: 100%;
 }
 
 ::selection
