@@ -62,12 +62,12 @@ export default class Text
                 $('[text-char="1"]').each(function()
                 {
                     let self = $(this)
-                    split = new SplitText(self, {type: 'chars, lines'})
+                    // split = new SplitText(self, {type: 'chars, lines', linesClass: 'line'})
 
                     if(self.hasClass('w-richtext')) {
                         split = new SplitText(self.find('h2'), {type: 'chars, lines'});
                     } else {
-                        split = new SplitText(self, {type: 'chars, lines'});
+                        split = new SplitText(self, {type: 'chars, words'});
                     }
 
 
