@@ -72,7 +72,7 @@ export default class Text
 
 
                     let tl = gsap.timeline({paused: true, defaults: {duration: 0.8, ease: 'power3', stagger: 0.02}})
-                    gsap.set(split.lines, {overflow: 'hidden'})
+                    // gsap.set(split.lines, {overflow: 'hidden'})
                     tl.from(split.chars, {yPercent: 100, opacity: 0})
     
                     ScrollTrigger.create({
@@ -83,23 +83,6 @@ export default class Text
                 })
             }
             charAnimation()
-
-            // const imgScroll = () => 
-            // {
-            //     $('[img-scroll="1"]').each(function()
-            //     {
-            //         let self = $(this)
-            //         let tl = gsap.timeline({paused: true, defaults: {duration: 0.7, ease: 'power3', stagger: 0.04}})
-            //         tl.from(self, {yPercent: 40, opacity: 0})
-    
-            //         ScrollTrigger.create({
-            //             trigger: self,
-            //             start: enter,
-            //             onEnter: () => tl.play()
-            //         })
-            //     })
-            // }
-            // imgScroll()
 
             const imgScroll = () => 
             {
