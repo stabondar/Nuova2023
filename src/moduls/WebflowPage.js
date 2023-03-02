@@ -7,9 +7,10 @@ import 'swiper/css/pagination';
 export default class WebflowPage {
 
     constructor() {
+      let navList = $('.transformative__item')
 
         $(".swiper-wrapper").append(`<div class="swiper-pagination"></div>`);
-        const swiperBrands = new Swiper('.wf-slider', {
+        const swiperBrands = new Swiper('._wf-slider', {
           modules: [Pagination, Navigation, EffectFade],
           keyboard: true,
           fadeEffect: { crossFade: true },
@@ -47,5 +48,21 @@ export default class WebflowPage {
             clickable: true
           }
         });
+
+        let activeIndex
+
+        swiperBrands.on('activeIndexChange', () => 
+        {
+          activeIndex = swiperBrands.activeIndex
+          navList.removeClass('active')
+          navList.eq(activeIndex).addClass('active')
+        })
+
+        $(navList).on('click', function()
+        {
+          let self = $(this)
+          let index = self.index()
+          swiperBrands.slideTo(index)
+        })
     }
 }
