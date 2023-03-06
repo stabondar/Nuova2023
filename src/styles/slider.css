@@ -4,6 +4,7 @@
 
 .swiper-slide {
     display: flex !important;
+    opacity: 1 !important;
 }
 
 .swiper-slide.dev-process-slide {
