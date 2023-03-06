@@ -64,6 +64,10 @@ export default class WebflowPage {
         const swiper = new Swiper(".swiper.dev-process", {
           modules: [Navigation, EffectCards],
           effect: "cards",
+          perSlideRotate: 0,
+          perSlideOffset: 8,
+          slideShadows: true,
+          rotate: false,
           cardsEffect: {
             perSlideRotate: 0,
           },
