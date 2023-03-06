@@ -1,3 +1,11 @@
 .testimonials__testimonial {
     width: 100% !important;
 }
+
+.swiper-slide {
+    display: flex !important;
+}
+
+.swiper-slide.dev-process-slide {
+    height: 36em !important;
+}
