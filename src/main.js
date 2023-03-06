@@ -1,5 +1,5 @@
 import './styles/style.css';
-import './styles/slider.css';
+import './styles/slider.scss';
 import './styles/root.css';
 
 import ServiceBlock from './moduls/ServiceBlock'
