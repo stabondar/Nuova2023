@@ -37,7 +37,6 @@ export default class Text
                 $('[text-line="1"]').each(function()
                 {
                     let self = $(this)
-                    split = new SplitText(self, {type: 'lines'});
 
                     if(self.hasClass('w-richtext')) {
                         split = new SplitText(self.find('p'), {type: 'lines'})

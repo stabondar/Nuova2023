@@ -46,3 +46,22 @@
 }
 
 /*------------------------*/ 
+
+.blog-post__nav-item {
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    color: #5349ee;
+  }
+
+  &.is--active {
+    color: #303030;
+    text-decoration: underline;
+
+    &:hover {
+      color: #5349ee;
+    }
+  }
+}
+

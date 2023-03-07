@@ -1,4 +1,4 @@
-import './styles/style.css';
+import './styles/style.scss';
 import './styles/slider.scss';
 import './styles/root.css';
 
@@ -10,6 +10,7 @@ import Utils from './moduls/Utils'
 import Accordion from './moduls/Accordion'
 import Nav from './moduls/Nav';
 import WebflowPage from './moduls/WebflowPage';
+import BlogTemplate from './moduls/Blog';
 
 const checkPages = () => {
     const service = new ServiceBlock()
@@ -20,5 +21,6 @@ const checkPages = () => {
     const accordion = new Accordion()
     const nav = new Nav()
     const webflow = new WebflowPage()
+    const blog = new BlogTemplate()
 }
 checkPages()
