@@ -70,5 +70,23 @@ export default class BlogTemplate
             })
         }
         window.addEventListener('load', () => init())
-    }
+
+        //blog imgs animation
+        const elements = document.querySelectorAll('.w-richtext img, .w-richtext .w-embed');
+
+        elements.forEach((element) => {
+            gsap.from(element, {
+                scrollTrigger: {
+                trigger: element,
+                start: "top 80%",
+                end: "bottom 80%",
+                toggleActions: "play none none none"
+                },
+                duration: 0.5,
+                yPercent: 20,
+                opacity: 0,
+                ease: "power1.out"
+            });
+        });
+    } 
 }
