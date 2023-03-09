@@ -65,3 +65,12 @@
   }
 }
 
+
+.w-richtext figure + p {
+  text-align: center;
+
+  & a {
+    color: #303030;
+    opacity: .5;
+  }
+}
