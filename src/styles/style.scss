@@ -36,13 +36,24 @@
 /*------------------------*/ 
 
 /*---- About page > Team Block ----*/
-
-.team__card:nth-child(3n+1) {
-  margin-top: 3.625rem;
+@media screen and (min-width: 992px) {
+  .team__card:nth-child(3n+1) {
+    margin-top: 3.625rem;
+  }
+  
+  .team__card:nth-child(3n+2) {
+    margin-top: 8.4375rem;
+  }
 }
 
-.team__card:nth-child(3n+2) {
-  margin-top: 8.4375rem;
+@media screen and (min-width: 768px) {
+  .team__card:nth-child(3n+1) {
+    margin-top: 1.875rem;
+  }
+  
+  .team__card:nth-child(3n+2) {
+    margin-top: 4.25rem;
+  }
 }
 
 /*------------------------*/ 
