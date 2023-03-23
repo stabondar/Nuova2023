@@ -2,6 +2,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 
+import SplitTextResize from "./SplitTextResize";
+
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
 export default class Text
@@ -25,61 +27,137 @@ export default class Text
             tl.from(split2.chars, {yPercent: 100, opacity:0, stagger: 0.02, ease: 'power3', duration: 1}, 0.2)
             tl.from(split3.lines, {yPercent: 100, opacity:0, stagger: 0.06, ease: 'power3', duration: 0.7}, '<0.4')
 
+            window.addEventListener('resize', () => {
+                split.revert()
+                split2.revert()
+                split3.revert()
+            })
+
         }
         Loader()
 
         let enter = 'top 80%'
-        let split
+        let splitLine, splitChar
+
+        this.lineAnimation = function()
+        {
+            let item = $('[text-line="1"]')
+
+            if(item.hasClass('w-richtext')) 
+            {
+                splitLine = new SplitText(item.find('p'), {type: 'lines'})
+            } else {
+                splitLine = new SplitText(item, {type: 'lines'})
+            }
+
+            $(item).each(function()
+            {
+                let self = $(this)
+                let lines = self.find(splitLine.lines)
+                let tl = gsap.timeline({paused: true, defaults: {duration: 0.8, ease: 'power3', stagger: 0.04}})
+
+                tl.fromTo(lines, {opacity: 0, yPercent: 100}, {opacity: 1, yPercent: 0})
+
+                ScrollTrigger.create({
+                    trigger: self,
+                    start: enter,
+                    onEnter: () => tl.play()
+                })
+
+                ScrollTrigger.create({
+                    trigger: self,
+                    start: enter,
+                    onUpdate: () => tl.play()
+                })
+            })
+        }
+
+        this.charAnimation = function()
+        {
+            let item = $('[text-char="1"]')
+
+            if(item.hasClass('w-richtext')) 
+            {
+                splitChar = new SplitText(item.find('h2'), {type: 'chars, words'});
+            } else {
+                splitChar = new SplitText(item, {type: 'chars, words'})
+            }
+
+            $(item).each(function()
+            {
+                let self = $(this)
+                let words = self.find(splitChar.words)
+                let chars = self.find(splitChar.chars)
+                let tl = gsap.timeline({paused: true, defaults: {duration: 0.8, ease: 'power3', stagger: 0.02}})
+
+                gsap.set(words, {overflow: 'hidden'})
+
+                tl.fromTo(chars, {opacity: 0, yPercent: 100}, {opacity: 1, yPercent: 0})
+
+                ScrollTrigger.create({
+                    trigger: self,
+                    start: enter,
+                    onEnter: () => tl.play()
+                })
+
+                ScrollTrigger.create({
+                    trigger: self,
+                    start: enter,
+                    onUpdate: () => tl.play()
+                })
+            })
+        }
+
         const init = () => 
         {
-            const lineAnimation = () => 
-            {
-                $('[text-line="1"]').each(function()
-                {
-                    let self = $(this)
+            // const lineAnimation = () => 
+            // {
+            //     $('[text-line="1"]').each(function()
+            //     {
+            //         let self = $(this)
 
-                    if(self.hasClass('w-richtext')) {
-                        split = new SplitText(self.find('p'), {type: 'lines'})
-                    } else {
-                        split = new SplitText(self, {type: 'lines'})
-                    }
+            //         if(self.hasClass('w-richtext')) {
+            //             splitLine = new SplitText(self.find('p'), {type: 'lines'})
+            //         } else {
+            //             splitLine = new SplitText(self, {type: 'lines'})
+            //         }
 
-                    let tl = gsap.timeline({paused: true, defaults: {duration: 0.8, ease: 'power3', stagger: 0.04}})
-                    tl.from(split.lines, {yPercent: 100, opacity: 0})
+            //         let tl = gsap.timeline({paused: true, defaults: {duration: 0.8, ease: 'power3', stagger: 0.04}})
+            //         tl.from(split.lines, {yPercent: 100, opacity: 0})
     
-                    ScrollTrigger.create({
-                        trigger: self,
-                        start: enter,
-                        onEnter: () => tl.play()
-                    })
-                })
-            }
-            lineAnimation()
+            //         ScrollTrigger.create({
+            //             trigger: self,
+            //             start: enter,
+            //             onEnter: () => tl.play()
+            //         })
+            //     })
+            // }
+            // lineAnimation()
     
-            const charAnimation = () => 
-            {
-                $('[text-char="1"]').each(function()
-                {
-                    let self = $(this)
-                    if(self.hasClass('w-richtext')) {
-                        split = new SplitText(self.find('h2'), {type: 'chars, lines'});
-                    } else {
-                        split = new SplitText(self, {type: 'chars, words'});
-                    }
+            // const charAnimation = () => 
+            // {
+            //     $('[text-char="1"]').each(function()
+            //     {
+            //         let self = $(this)
+            //         if(self.hasClass('w-richtext')) {
+            //             split = new SplitText(self.find('h2'), {type: 'chars, lines'});
+            //         } else {
+            //             split = new SplitText(self, {type: 'chars, words'});
+            //         }
 
 
-                    let tl = gsap.timeline({paused: true, defaults: {duration: 0.8, ease: 'power3', stagger: 0.02}})
-                    gsap.set(split.lines, {overflow: 'hidden'})
-                    tl.from(split.chars, {yPercent: 100, opacity: 0})
+            //         let tl = gsap.timeline({paused: true, defaults: {duration: 0.8, ease: 'power3', stagger: 0.02}})
+            //         gsap.set(split.lines, {overflow: 'hidden'})
+            //         tl.from(split.chars, {yPercent: 100, opacity: 0})
     
-                    ScrollTrigger.create({
-                        trigger: self,
-                        start: enter,
-                        onEnter: () => tl.play()
-                    })
-                })
-            }
-            charAnimation()
+            //         ScrollTrigger.create({
+            //             trigger: self,
+            //             start: enter,
+            //             onEnter: () => tl.play()
+            //         })
+            //     })
+            // }
+            // charAnimation()
 
             const imgScroll = () => 
             {
@@ -105,24 +183,15 @@ export default class Text
             }
             imgScroll()
         }
-        
-        window.addEventListener('load', () => init())
 
-        function killAll() {
-            split.revert()
+        window.addEventListener('load', () =>
+        {
             init()
-        }
-        
-        function debounce(func) {
-            var timer;
-            return function (event) {
-                if (timer) clearTimeout(timer);
-                timer = setTimeout(func, 300, event);
-            };
-        }
-        
-        window.addEventListener("resize", debounce(function (e) {
-                killAll()
-        }));
+            this.lineAnimation()
+            this.charAnimation()
+
+            const lineAnimationResize = new SplitTextResize(splitLine, this.lineAnimation)
+            const charAnimationResize = new SplitTextResize(splitChar, this.charAnimation)
+        })
     }
 }

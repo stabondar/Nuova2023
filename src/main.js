@@ -11,6 +11,7 @@ import Accordion from './moduls/Accordion'
 import Nav from './moduls/Nav';
 import WebflowPage from './moduls/WebflowPage';
 import BlogTemplate from './moduls/Blog';
+import Validation from './moduls/Validation';
 
 const checkPages = () => {
     const service = new ServiceBlock()
@@ -22,5 +23,6 @@ const checkPages = () => {
     const nav = new Nav()
     const webflow = new WebflowPage()
     const blog = new BlogTemplate()
+    const validation = new Validation()
 }
 checkPages()
