@@ -18,38 +18,40 @@ export default class Validation
             })
         })
 
-        const validateForm = (login) =>
-        {
-            let input = login.find('input')
-            let firstNameInput = login.find('[name="Name"]')
-            let emailInput = login.find('[type="email"]')
-            let lastNameInput = login.find('[name="Company-Name"]')
-            let budgetInput = login.find('[name="Estimated-Budget-in"]')
-            let error = login.find('input.error, select.error')
-            let submit = login.find('.contact-form__button')
-            let checkbox = login.find('[type="checkbox"]')
+        const validateForm = (login) => {
+  let input = login.find('input');
+  let firstNameInput = login.find('[name="Name"]');
+  let emailInput = login.find('[type="email"]');
+  let lastNameInput = login.find('[name="Company-Name"]');
+  let budgetInput = login.find('[name="Estimated-Budget-in"]');
+  let error = login.find('input.error, select.error');
+  let submit = login.find('.contact-form__button');
+  let checkbox = login.find('[type="checkbox"]');
 
-            submit.addClass('disabled')
+  submit.addClass('disabled');
 
-            const checkInput = () =>
-            {
-                error = login.find('input.error, select.error')
-                selectInput = login.find('.styledSelect.checked')
+  const checkInput = () => {
+    error = login.find('input.error, select.error');
+    let selectInput = login.find('.styledSelect.checked');
 
-                if(emailInput.val().length < 5 || firstNameInput.val().length < 2 || lastNameInput.val().length < 2 || budgetInput.val().length < 2 || checkbox.is(':checked') == false)
-                {
-                    submit.addClass('disabled')
-                } else
-                {
-                    submit.removeClass('disabled')
-                }
-            }
+    if (
+      emailInput.val().length < 5 ||
+      firstNameInput.val().length < 2 ||
+      lastNameInput.val().length < 2 ||
+      budgetInput.val().length < 2 ||
+      !checkbox.is(':checked')
+    ) {
+      submit.addClass('disabled');
+    } else {
+      submit.removeClass('disabled');
+    }
+  };
 
-            input.on('keyup', () => checkInput())
-            checkboxParent.on('click', () => checkInput())
-            selectOptions.on('click', () => checkInput())
-        }
-
-        validateForm('#wf-form-Form-Contacts')
+  input.on('keyup', () => checkInput());
+  checkbox.on('click', () => checkInput());
+  // It's unclear what selectOptions is referring to, so it's commented out for now
+  // selectOptions.on('click', () => checkInput());
+};
+        
     }
 }
