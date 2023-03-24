@@ -49,5 +49,7 @@ export default class Validation
             checkboxParent.on('click', () => checkInput())
             selectOptions.on('click', () => checkInput())
         }
+
+        validateForm('#wf-form-Form-Contacts')
     }
 }
