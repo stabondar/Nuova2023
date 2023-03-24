@@ -15,3 +15,10 @@
     background: rgb(66 59 176 / 88%) !important;
 }
 
+.swiper-slide.webflow-design.swiper-slide-visible.swiper-slide-active {
+    opacity: 1 !important;
+}
+
+.swiper-slide.webflow-design {
+    opacity: 0 !important;
+}

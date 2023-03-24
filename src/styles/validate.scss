@@ -9,3 +9,8 @@ label.error
     right: 0;
     text-align: right;
 }
+
+.contact-form__button.disabled {
+    pointer-events: none;
+    filter: grayscale(100%) brightness(0.3);
+}

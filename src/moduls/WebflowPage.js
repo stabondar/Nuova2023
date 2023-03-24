@@ -15,9 +15,10 @@ export default class WebflowPage {
           keyboard: true,
           fadeEffect: { crossFade: true },
           virtualTranslate: true,
+          autoHeight: true,
           effect: "fade",
           grabCursor: true,
-          speed: 100,
+          speed: 800,
           // loop: true,
           slidersPerView: 1,
           centeredSlides: false,
@@ -44,9 +45,10 @@ export default class WebflowPage {
           swiperBrands.slideTo(index)
         })
 
+//----------
 
         const swiper = new Swiper(".swiper.dev-process", {
-          modules: [Navigation, EffectCards, EffectFade],
+          modules: [Navigation, EffectCards],
           effect: "cards",
           loop: true,   
           rotate: false,
@@ -62,15 +64,6 @@ export default class WebflowPage {
           navigation: {
             nextEl: ".slider-arrow.is--dev-process.is--next",
             prevEl: ".slider-arrow.is--dev-process.is--prev",
-          },
-
-          breakpoints: {
-            320: {
-              effect: "fade",
-              fadeEffect: { crossFade: true },
-              virtualTranslate: true,
-            }
-
           }
         });
     }

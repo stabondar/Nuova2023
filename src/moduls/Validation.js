@@ -21,16 +21,13 @@ export default class Validation
         const validateForm = (login) =>
         {
             let input = login.find('input')
+            let firstNameInput = login.find('[name="Name"]')
             let emailInput = login.find('[type="email"]')
-            let firstNameInput = login.find('[name="firstname"]')
-            let lastNameInput = login.find('[name="lastname"]')
-            let UrlInput = login.find('[name="url"]')
+            let lastNameInput = login.find('[name="Company-Name"]')
+            let budgetInput = login.find('[name="Estimated-Budget-in"]')
             let error = login.find('input.error, select.error')
-            let submit = login.find('.form__submit--parent')
+            let submit = login.find('.contact-form__button')
             let checkbox = login.find('[type="checkbox"]')
-            let checkboxParent = login.find('.login__checkbox---parent')
-            let selectInput = login.find('.styledSelect.checked')
-            let selectOptions = login.find('.styledParent').find('li')
 
             submit.addClass('disabled')
 
@@ -39,15 +36,13 @@ export default class Validation
                 error = login.find('input.error, select.error')
                 selectInput = login.find('.styledSelect.checked')
 
-                if(emailInput.val().length < 5 || firstNameInput.val().length < 2 || lastNameInput.val().length < 2 || UrlInput.val().length < 4 ||  error.length > 0 || checkbox.is(':checked') == false || selectInput.length == 0)
+                if(emailInput.val().length < 5 || firstNameInput.val().length < 2 || lastNameInput.val().length < 2 || budgetInput.val().length < 2 || checkbox.is(':checked') == false)
                 {
                     submit.addClass('disabled')
                 } else
                 {
                     submit.removeClass('disabled')
                 }
-
-                
             }
 
             input.on('keyup', () => checkInput())
