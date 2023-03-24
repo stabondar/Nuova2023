@@ -21,30 +21,13 @@ export default class Slider {
       loop: true,
       slidersPerView: 1,
       centeredSlides: false,
-      breakpoints: {
-        320: {
-          centeredSlides: false,
-          slidersPerView: 1
-        },
-          
-        480: {
-          centeredSlides: false,
-          slidersPerView: 1
-        },
-          
-        991: {
-          centeredSlides: false,
-          slidersPerView: 1
-        }
-      },
 
       navigation: {
         nextEl: ".testimonials__arrow.is--next",
         prevEl: ".testimonials__arrow.is--prev"
       }
-      });
-
-    }
+    })
+}
     testimonialSlider()
   }
 }
