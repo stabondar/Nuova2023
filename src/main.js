@@ -12,6 +12,8 @@ import Nav from './moduls/Nav';
 import WebflowPage from './moduls/WebflowPage';
 import BlogTemplate from './moduls/Blog';
 import Validation from './moduls/Validation';
+import Video from './moduls/Video';
+
 
 const checkPages = () => {
     const service = new ServiceBlock()
@@ -24,5 +26,6 @@ const checkPages = () => {
     const webflow = new WebflowPage()
     const blog = new BlogTemplate()
     const validation = new Validation()
+    const video = new Video()
 }
 checkPages()
