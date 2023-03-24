@@ -22,7 +22,7 @@ export default class Loader
             .to(loader, {clipPath: 'inset(0% 0 0% 0)'})
 
             let delay = tlOut.duration() * 1000
-            let trigger = $('.nav__item, .nav__logo, .works__item-link')
+            let trigger = $('.nav__item, .nav__logo, [transition = "yes"]')
 
             $(trigger).click(function(e)
             {
@@ -36,6 +36,5 @@ export default class Loader
             })
         }
         window.addEventListener('load', () => Loader())
-        // Loader()
     }
 }
