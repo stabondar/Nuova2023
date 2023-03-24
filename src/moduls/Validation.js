@@ -17,7 +17,7 @@ export default class Validation
                 }
             })
         })
-
+        
         const validateForm = (login) => {
   let input = login.find('input');
   let firstNameInput = login.find('[name="Name"]');
@@ -52,6 +52,9 @@ export default class Validation
   // It's unclear what selectOptions is referring to, so it's commented out for now
   // selectOptions.on('click', () => checkInput());
 };
+
+const loginForm = $('.contact-form__block');
+validateForm(loginForm);
         
     }
 }
