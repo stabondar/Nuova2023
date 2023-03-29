@@ -18,7 +18,7 @@ export default class WebflowPage {
           autoHeight: true,
           effect: "fade",
           grabCursor: true,
-          speed: 800,
+          speed: 400,
           // loop: true,
           slidersPerView: 1,
           centeredSlides: false,
@@ -45,9 +45,9 @@ export default class WebflowPage {
           swiperBrands.slideTo(index)
         })
 
-//----------
 
-        const swiper = new Swiper(".swiper.dev-process", {
+        // Desktop slider cards
+        let swiper = new Swiper(".swiper.dev-process", {
           modules: [Navigation, EffectCards],
           effect: "cards",
           loop: true,   
@@ -66,5 +66,23 @@ export default class WebflowPage {
             prevEl: ".slider-arrow.is--dev-process.is--prev",
           }
         });
+        // Desktop slider cards -- end
+
+        // Mobile slider cards
+        let swiperCardMob = new Swiper(".dev-process-mob", {
+          modules: [Navigation],
+          autoHeight: true,
+          grabCursor: true,
+          speed: 800,
+          spaceBetween: 20,
+          slidersPerView: 1,
+          keyboard: true,
+
+          navigation: {
+            nextEl: ".slider-arrow.is--dev-process-mob.is--next",
+            prevEl: ".slider-arrow.is--dev-process-mob.is--prev",
+          },
+        });
+        // Mobile slider cards -- end
     }
 }
