@@ -21,12 +21,27 @@ export default class Videohover
             {
                 let richText = $('.w-richtext')
                 let backgroundVid = richText.find('.w-embed')
-                let embed = $('.w-embed')
+                let heroVid = $('.w-background-video')
                 let cursor = $('.cursor')
                 let cusrorPlay = cursor.find('.cursor__play')
                 let cusrorPlayText = cusrorPlay.find('.p--18')
 
                 backgroundVid.on("click", function () 
+                {
+                    let myVideo = $(this).find("video");
+                    $(this).toggleClass("playing");
+                    if ($(this).hasClass("playing")) 
+                    {
+                      myVideo.prop("muted", false);
+                      cusrorPlayText.text('Sound Off')
+                    } else 
+                    {
+                      myVideo.prop("muted", true);
+                      cusrorPlayText.text('Sound On')
+                    }
+                });
+
+                heroVid.on("click", function () 
                 {
                     let myVideo = $(this).find("video");
                     $(this).toggleClass("playing");
@@ -47,8 +62,8 @@ export default class Videohover
 
                 console.log(cursor, backgroundVid);
 
-                backgroundVid.add(embed).on('mouseenter', () => tl.restart())
-                backgroundVid.add(embed).on('mouseleave', () => tl.reverse())
+                backgroundVid.add(heroVid).on('mouseenter', () => tl.restart())
+                backgroundVid.add(heroVid).on('mouseleave', () => tl.reverse())
             }
             videoFunc()
         }
