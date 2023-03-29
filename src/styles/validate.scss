@@ -1,6 +1,6 @@
 label.error 
 {
-    font-size: 0.8rem;
+    font-size: 0.1rem;
     color: black;
     width: 100%;
     font-weight: 400;
@@ -8,6 +8,7 @@ label.error
     bottom: 18%;
     right: 0;
     text-align: right;
+    opacity: 0;
 }
 
 .contact-form__button.disabled {

@@ -13,6 +13,8 @@ import WebflowPage from './moduls/WebflowPage';
 import BlogTemplate from './moduls/Blog';
 import Validation from './moduls/Validation';
 import Video from './moduls/Video';
+import Cursor from './moduls/Cursor';
+import Videohover from './moduls/VideoHover';
 
 
 const checkPages = () => {
@@ -27,5 +29,7 @@ const checkPages = () => {
     const blog = new BlogTemplate()
     const validation = new Validation()
     const video = new Video()
+    const cursor = new Cursor()
+    const vidhover = new Videohover()
 }
 checkPages()
