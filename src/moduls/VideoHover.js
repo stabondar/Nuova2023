@@ -19,8 +19,9 @@ export default class Videohover
         {
             const videoFunc = () => 
             {
-                let richText = $('.rich-text')
+                let richText = $('.w-richtext')
                 let backgroundVid = richText.find('.w-embed')
+                let embed = $('.w-embed')
                 let cursor = $('.cursor')
                 let cusrorPlay = cursor.find('.cursor__play')
                 let cusrorPlayText = cusrorPlay.find('.p--18')
@@ -44,8 +45,10 @@ export default class Videohover
                 tl.to(cusrorPlay, {opacity: 1})
                 .to(cursor, {width: '6.25rem', height: '6.25rem', backgroundColor: 'rgba(120, 112, 241, 1)'}, '<')
 
-                backgroundVid.on('mouseenter', () => tl.restart())
-                backgroundVid.on('mouseleave', () => tl.reverse())
+                console.log(cursor, backgroundVid);
+
+                backgroundVid.add(embed).on('mouseenter', () => tl.restart())
+                backgroundVid.add(embed).on('mouseleave', () => tl.reverse())
             }
             videoFunc()
         }

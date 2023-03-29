@@ -13,6 +13,11 @@
   -webkit-text-stroke-color: transparent;
 }
 
+.cursor-parent
+{
+  pointer-events: none;
+}
+
 .faq_toggle.open .faq_icon {
 	transform: rotate(90deg);
 }

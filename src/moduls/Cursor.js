@@ -14,9 +14,9 @@ export default class Cursor
             let windowX = window.innerWidth
             let windowY = window.innerHeight
 
-            $("body").on('mousemove', function (event) {
-                mouse.x = event.pageX;
-                mouse.y = event.pageY;
+            $(window).on('mousemove', function (event) {
+                mouse.x = event.clientX;
+                mouse.y = event.clientY;
 
                 cancelAnimationFrame(request);
                 request = requestAnimationFrame(update);
