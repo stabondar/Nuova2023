@@ -58,7 +58,7 @@ export default class Videohover
 
                 let tl = gsap.timeline({paused: true, defaults: {duration: 0.4, ease: 'power3'}})
                 tl.to(cusrorPlay, {opacity: 1})
-                .to(cursor, {width: '6.25rem', height: '6.25rem', backgroundColor: 'rgba(120, 112, 241, 1)'}, '<')
+                .to(cursor, {width: '6.25rem', height: '6.25rem', backgroundColor: 'rgb(83, 73, 238)'}, '<')
 
                 console.log(cursor, backgroundVid);
 
