@@ -8,5 +8,8 @@ export default class Utils
         {
             gsap.set('main', { autoAlpha: 1 })
         })
+
+        // On Back Button Tap
+        window.onpageshow = function(event) {if (event.persisted) {window.location.reload()}};
     }
 }
