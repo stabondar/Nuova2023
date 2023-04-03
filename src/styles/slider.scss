@@ -22,3 +22,26 @@
 .swiper-slide.webflow-design {
     opacity: 0 !important;
 }
+
+@media screen and (max-width: 480px) 
+{
+    .slider-arrow
+    {
+        color: #fff;
+
+        &.swiper-button-disabled
+        {
+            color: #8780f3
+        }
+
+        &:hover
+        {
+            color: #fff !important;
+        }
+
+        &.swiper-button-disabled:hover
+        {
+            color: #8780f3 !important
+        }
+    }
+}
