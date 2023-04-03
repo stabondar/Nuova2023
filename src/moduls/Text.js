@@ -143,8 +143,8 @@ export default class Text
             ScrollTrigger.refresh()
 
             setTimeout(() => {
-                gsap.set($('img'), {autoAlpha: 1})
-            }, 1500);
+                gsap.set($('.works__item-thumbnail'), {autoAlpha: 1})
+            }, 1000)
 
             const lineAnimationResize = new SplitTextResize(splitLine, this.lineAnimation)
             const charAnimationResize = new SplitTextResize(splitChar, this.charAnimation)
