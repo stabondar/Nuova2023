@@ -110,55 +110,6 @@ export default class Text
 
         const init = () => 
         {
-            // const lineAnimation = () => 
-            // {
-            //     $('[text-line="1"]').each(function()
-            //     {
-            //         let self = $(this)
-
-            //         if(self.hasClass('w-richtext')) {
-            //             splitLine = new SplitText(self.find('p'), {type: 'lines'})
-            //         } else {
-            //             splitLine = new SplitText(self, {type: 'lines'})
-            //         }
-
-            //         let tl = gsap.timeline({paused: true, defaults: {duration: 0.8, ease: 'power3', stagger: 0.04}})
-            //         tl.from(split.lines, {yPercent: 100, opacity: 0})
-    
-            //         ScrollTrigger.create({
-            //             trigger: self,
-            //             start: enter,
-            //             onEnter: () => tl.play()
-            //         })
-            //     })
-            // }
-            // lineAnimation()
-    
-            // const charAnimation = () => 
-            // {
-            //     $('[text-char="1"]').each(function()
-            //     {
-            //         let self = $(this)
-            //         if(self.hasClass('w-richtext')) {
-            //             split = new SplitText(self.find('h2'), {type: 'chars, lines'});
-            //         } else {
-            //             split = new SplitText(self, {type: 'chars, words'});
-            //         }
-
-
-            //         let tl = gsap.timeline({paused: true, defaults: {duration: 0.8, ease: 'power3', stagger: 0.02}})
-            //         gsap.set(split.lines, {overflow: 'hidden'})
-            //         tl.from(split.chars, {yPercent: 100, opacity: 0})
-    
-            //         ScrollTrigger.create({
-            //             trigger: self,
-            //             start: enter,
-            //             onEnter: () => tl.play()
-            //         })
-            //     })
-            // }
-            // charAnimation()
-
             const imgScroll = () => 
             {
                 let img = $('[img-scroll="1"]')
@@ -189,6 +140,7 @@ export default class Text
             init()
             this.lineAnimation()
             this.charAnimation()
+            ScrollTrigger.refresh()
 
             const lineAnimationResize = new SplitTextResize(splitLine, this.lineAnimation)
             const charAnimationResize = new SplitTextResize(splitChar, this.charAnimation)
