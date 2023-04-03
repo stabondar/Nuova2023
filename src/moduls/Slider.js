@@ -20,7 +20,7 @@ export default class Slider {
       speed: 800,
       loop: true,
       slidersPerView: 1,
-      centeredSlides: false,
+      centeredSlides: true,
 
       navigation: {
         nextEl: ".testimonials__arrow.is--next",

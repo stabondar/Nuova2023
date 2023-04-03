@@ -1,5 +1,5 @@
 .testimonials__testimonial {
-    width: 100% !important;
+    // width: 100% !important;
 }
 
 .swiper-slide {
@@ -27,11 +27,11 @@
 {
     .slider-arrow
     {
-        color: #fff;
+        color: #fff !important;
 
         &.swiper-button-disabled
         {
-            color: #8780f3
+            color: #8780f3 !important
         }
 
         &:hover
