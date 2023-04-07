@@ -15,6 +15,7 @@ import Validation from './moduls/Validation';
 // import Video from './moduls/Video';
 import Cursor from './moduls/Cursor';
 import Videohover from './moduls/VideoHover';
+import Cases from './moduls/Cases';
 
 
 const checkPages = () => {
@@ -31,5 +32,7 @@ const checkPages = () => {
     // const video = new Video()
     const cursor = new Cursor()
     const vidhover = new Videohover()
+
+    if($('body').attr('page') === 'cases') { const cases = new Cases() }
 }
 checkPages()

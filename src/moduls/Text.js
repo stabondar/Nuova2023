@@ -110,41 +110,33 @@ export default class Text
 
         const init = () => 
         {
-            const imgScroll = () => 
+            let img = $('[img-scroll="1"]')
+            $(img).each(function()
             {
-                let img = $('[img-scroll="1"]')
-                $(img).each(function()
+                let self = $(this)
+                let parent = self.parent()
+                gsap.set(parent, {overflow: 'hidden'})
+                gsap.set(self, {scale: 1.1})
+                let tl = gsap.timeline(
                 {
-                    let self = $(this)
-                    let parent = self.parent()
-                    gsap.set(parent, {overflow: 'hidden'})
-                    gsap.set(self, {scale: 1.1})
-                    let tl = gsap.timeline(
+                    scrollTrigger: 
                     {
-                        scrollTrigger: 
-                        {
-                            trigger: parent,
-                            start: 'top bottom',
-                            end: 'bottom top',
-                            scrub: 1
-                        }
-                    })
-                    tl.fromTo(self, {yPercent: -8}, {yPercent: 8})
+                        trigger: parent,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: 1
+                    }
                 })
-            }
-            imgScroll()
+                tl.fromTo(self, {yPercent: -8}, {yPercent: 8})
+            })
         }
 
         window.addEventListener('load', () =>
         {
-            init()
             this.lineAnimation()
             this.charAnimation()
-            ScrollTrigger.refresh()
-
-            setTimeout(() => {
-                gsap.set($('img'), {autoAlpha: 1})
-            }, 1000)
+            
+            init()    
 
             const lineAnimationResize = new SplitTextResize(splitLine, this.lineAnimation)
             const charAnimationResize = new SplitTextResize(splitChar, this.charAnimation)
